@@ -1,0 +1,58 @@
+<div class="subtitle">
+  <div class="subtitle-inputText">
+    <div class="input-section">
+      <input
+        type="text"
+        class="input-subtitle"
+        id="subtitle"
+        placeholder="click here to add subtitle"
+      />
+    </div>
+    <div class="btn-section">
+      <button class="btn-delete" (click)="deleteSubTitleElement()">
+        <img src="assets/images/icon-btn-delete.png" />
+      </button>
+    </div>
+  </div>
+  <div class="subtitle-slider">
+    <ejs-slider
+      id="range"
+      min="0"
+      max="{{maxvalue}}"
+      [value]="rangevalue"
+      type="Range"
+      (change)="onRangeValueChange($event)"
+    ></ejs-slider>
+  </div>
+  <div class="subtitle-timeBounds">
+    <div class="subtitle-timeBounds-setTime">
+      <div class="input-section">
+        <input
+          type="text"
+          class="input-time"
+          id="startTime"
+          value="{{startTimeString}}"
+          readonly
+        />
+      </div>
+      <div class="btn-section">
+        <button class="btn-setTime">Start Time</button>
+      </div>
+    </div>
+    <div class="subtitle-timeBounds-separator"><span> - </span></div>
+    <div class="subtitle-timeBounds-setTime">
+      <div class="input-section">
+        <input
+          type="text"
+          class="input-time"
+          id="startTime"
+          value="{{endTimeString}}"
+          readonly
+        />
+      </div>
+      <div class="btn-section">
+        <button class="btn-setTime">End Time</button>
+      </div>
+    </div>
+  </div>
+</div>

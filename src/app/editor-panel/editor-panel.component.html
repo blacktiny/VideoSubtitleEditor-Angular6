@@ -1,0 +1,39 @@
+<div class="editor">
+  <div class="editor-title"><span>Add Subtitles to Video</span></div>
+  <div class="editor-seeker-tools">
+    <button class="btn-seeker size-large backcolor-play" (click)="startVideo()">
+      <img src="assets/images/icon-btn-play.png" />
+    </button>
+    <button class="btn-seeker" (click)="restartVideo()">
+      <img src="assets/images/icon-btn-restart.png" />
+    </button>
+    <button class="btn-seeker" (click)="backVideo()">-5s</button>
+    <button class="btn-seeker" (click)="forwardVideo()">+5s</button>
+    <div class="seeker-bounds"><span class="lab-time">{{curTimeString}} / {{totalTimeString}}</span></div>
+  </div>
+  <div class="editor-slider-section">
+    <ejs-slider
+      id="minrange"
+      min="0"
+      max="{{totalTime}}"
+      value="{{curTime}}"
+      type="MinRange"
+      (change)="onTimeValueChange($event)"
+    ></ejs-slider>
+  </div>
+  <div class="editor-subtitle">
+    <app-subtitle-element
+      class="subtitle-element"
+      *ngFor="let divData of subTitleElements"
+      [index]="divData"
+    ></app-subtitle-element>
+    <app-add-subtitle class="add-subtitle"></app-add-subtitle>
+    <div class="addSubtitle-btn">
+      <div class="btn-section">
+        <button class="btn-add" (click)="addSubTitle()">
+          Add Another Subtitle
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

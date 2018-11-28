@@ -1,0 +1,108 @@
+<div class="video">
+  <div>
+    <div class="video-preview">
+      <div class="btn-section">
+        <button class="btn-reposition">
+          Reposition
+          <div class="icon-section">
+            <img src="assets/images/icon-btn-reposition.png" />
+          </div>
+        </button>
+      </div>
+      <div class="screen-section">
+        <vg-player class="player">
+          <video
+            class="video"
+            [vgMedia]="media"
+            #media
+            id="singleVideo"
+            preload="auto"
+            controls
+          >
+            <source
+              src="http://static.videogular.com/assets/videos/videogular.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </vg-player>
+        <div class="subtitle-content">
+          <div class="text-section">
+            <span>click here to add subtitle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="video-subtitle-options">
+      <div class="select-font-section">
+        <select name="font" class="font" ngModel>
+          <option *ngFor="let font of fonts" [value]="font">
+            {{ font }}
+          </option>
+        </select>
+      </div>
+      <div class="select-fontSize-section">
+        <select name="fontSize" class="fontSize" ngModel>
+          <option *ngFor="let size of fontSizes" [value]="size">
+            {{ size }}
+          </option>
+        </select>
+      </div>
+      <div class="separator-section"><div class="v-separator"></div></div>
+      <div class="btn-color"><button class="btn-backcolor"></button></div>
+      <div class="btn-color"><button class="btn-fontcolor">A</button></div>
+      <div class="separator-section"><div class="v-separator"></div></div>
+      <div class="btn-fontstyle">
+        <button class="btn-icon">
+          <img src="assets/images/icon-btn-font-bold.png" />
+        </button>
+      </div>
+      <div class="btn-fontstyle">
+        <button class="btn-icon">
+          <img src="assets/images/icon-btn-font-italic.png" />
+        </button>
+      </div>
+      <div class="separator-section"><div class="v-separator"></div></div>
+      <div class="spaceing"><span>Spaceing</span></div>
+      <div class="separator-end-section">
+        <div class="v-separator-end"></div>
+      </div>
+    </div>
+    <!-- <app-color-picker class="video-color-picker"></app-color-picker> -->
+    <div class="video-screensize-options">
+      <span>Video Size</span>
+      <div class="btn-group">
+        <button
+          class="btn size-small"
+          [class.activated]="screenSizeType == 1"
+          (click)="onScreenSizeChanged(1)"
+        >
+          9.16
+        </button>
+        <button
+          class="btn size-normal"
+          [class.activated]="screenSizeType == 2"
+          (click)="onScreenSizeChanged(2)"
+        >
+          1.1
+        </button>
+        <button
+          class="btn size-large"
+          [class.activated]="screenSizeType == 3"
+          (click)="onScreenSizeChanged(3)"
+        >
+          16.9
+        </button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="bShowBtnComplete" class="video-complete">
+    <div class="btn-section">
+      <button class="btn-complete" (click)="onCompleteClicked()">
+        <div class="icon-section">
+          <img src="assets/images/icon-btn-complete.png" />
+        </div>
+        Complete
+      </button>
+    </div>
+  </div>
+</div>

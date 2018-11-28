@@ -1,0 +1,38 @@
+<div class="complete-video">
+  <div class="complete-video-header">
+    <div class="btn-section">
+      <div class="btn-download-section">
+        <button class="btn-download">
+          <div class="icon-section">
+            <img src="assets/images/icon-btn-download.png" />
+          </div>
+          Download
+        </button>
+      </div>
+      <div class="btn-back-section">
+        <button class="btn-back" (click)="onBackClicked()">
+          <img src="assets/images/icon-btn-back.png" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="complete-video-content">
+    <div class="screen-section">
+      <vg-player>
+        <video
+          class="player"
+          [vgMedia]="media"
+          #media
+          id="singleVideo"
+          preload="auto"
+          controls
+        >
+          <source
+            src="http://static.videogular.com/assets/videos/videogular.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </vg-player>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,272 @@
+.video {
+  display: flex;
+  flex-direction: column;
+  width: 486px;
+  justify-content: space-between;
+  height: 100%;
+  &-preview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    .btn-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      .btn-reposition {
+        display: flex;
+        justify-content: center;
+        width: 206px;
+        height: 45px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight: 80;
+        font-size: 18px;
+        color: white;
+        background-color: #2fb698;
+        border-radius: 4px;
+        border: none;
+        .icon-section {
+          display: flex;
+          margin-left: 12px;
+          margin-top: 3px;
+        }
+      }
+    }
+    .screen-section {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+      .player {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        .video {
+          width: 456px;
+          height: 286px;
+        }
+      }
+      .subtitle-content {
+        position: absolute;
+        top: 240px;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 486px;
+        height: 125px;
+        margin-left: 15%;
+        .text-section {
+          background: none;
+          box-sizing: border-box;
+          width: 100%;
+          position: absolute;
+          padding: 15px 0;
+          text-align: center;
+          font-family: Arial, Helvetica, sans-serif;
+          flex-grow: 0;
+          span {
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+              "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+          }
+        }
+        @media screen and (max-width:1440px) {
+          margin-left: 7.5%;
+        }
+        @media screen and (max-width:1280px) {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+  &-subtitle-options {
+    display: flex;
+    width: 100%;
+    height: 41px;
+    min-height: 41px;
+    background-color: white;
+    .select-font-section {
+      display: flex;
+      width: 135px;
+      height: 100%;
+      align-items: center;
+      margin: 0px 10px;
+      .font {
+        display: flex;
+        width: 100%;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+        border: none;
+      }
+    }
+    .select-fontSize-section {
+      display: flex;
+      width: 70px;
+      height: 100%;
+      align-items: center;
+      margin: 0px 5px;
+      .fontSize {
+        display: flex;
+        width: 100%;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+        border: none;
+      }
+    }
+    .btn-color {
+      display: flex;
+      width: 26px;
+      align-items: center;
+      margin: 0px 5px;
+      .btn-backcolor {
+        width: 100%;
+        height: 26px;
+        border: none;
+        background-color: #b8e986;
+        border-radius: 4px;
+      }
+      .btn-fontcolor {
+        width: 100%;
+        height: 26px;
+        background-color: #fff300;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+        border: none;
+        border: 1px solid #979797;
+        border-radius: 4px;
+      }
+    }
+    .separator-section {
+      height: 100%;
+      padding: 8px 0;
+      box-sizing: border-box;
+      margin: 0px 5px;
+      .v-separator {
+        border-right: 1px solid #999;
+        height: 100%;
+      }
+    }
+    .btn-fontstyle {
+      display: flex;
+      width: 26px;
+      align-items: center;
+      margin: 0px 5px;
+      .btn-icon {
+        display: flex;
+        width: 100%;
+        height: 26px;
+        align-items: center;
+        justify-content: center;
+        border: none;
+      }
+    }
+    .spaceing {
+      display: flex;
+      width: 58px;
+      align-items: center;
+      margin: 0px 5px;
+      span {
+        display: flex;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+      }
+    }
+    .separator-end-section {
+      height: 100%;
+      margin-left: 5px;
+      .v-separator-end {
+        border-right: 1px solid #999;
+        height: 100%;
+      }
+    }
+  }
+  &-color-picker {
+    display: flex;
+    width: 150px;
+    height: 150px;
+  }
+  &-screensize-options {
+    display: flex;
+    height: 38px;
+    min-height: 38px;
+    margin: 20px 15px;
+    span {
+      display: flex;
+      color: white;
+      align-items: center;
+      justify-items: center;
+      margin-right: 15px;
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+        "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      font-size: 14px;
+    }
+    .btn-group {
+      .btn {
+        font-size: 9px;
+        color: white;
+        background: transparent;
+        border-radius: 4px;
+        padding: 0px;
+        height: 38px;
+        margin: 0px 3px;
+      }
+      .size-small {
+        width: 22px;
+      }
+      .size-normal {
+        width: 38px;
+      }
+      .size-large {
+        width: 67px;
+      }
+      .activated {
+        border: 1px solid greenyellow;
+      }
+    }
+  }
+  &-complete {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    .btn-section {
+      display: flex;
+      width: 100%;
+      height: 100px;
+      align-items: center;
+      justify-content: center;
+      .btn-complete {
+        display: flex;
+        width: 431px;
+        height: 59px;
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light",
+          "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        background-color: #ff1569;
+        align-items: center;
+        justify-content: center;
+        .icon-section {
+          margin: 0px 10px;
+        }
+      }
+    }
+  }
+}
