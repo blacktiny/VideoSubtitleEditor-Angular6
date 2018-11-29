@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MessageService } from "../_services/message.service";
 import { Subscription } from "rxjs";
 
@@ -7,7 +7,7 @@ import { Subscription } from "rxjs";
   templateUrl: './Video-panel.component.html',
   styleUrls: ['./Video-panel.component.scss']
 })
-export class VideoPanelComponent implements OnInit {
+export class VideoPanelComponent implements OnInit, OnDestroy {
   public fonts: any;
   public fontSizes: any;
   public bShowBtnComplete: boolean = false;
@@ -41,6 +41,10 @@ export class VideoPanelComponent implements OnInit {
     this.fontSizes = [
       100.3
     ]
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   onCompleteClicked() {

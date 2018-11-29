@@ -1,7 +1,9 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { SliderChangeEventArgs } from "@syncfusion/ej2-angular-inputs";
-import { MessageService } from "../_services/message.service";
 import { Subscription } from "rxjs";
+
+import { MessageService } from "../_services/message.service";
+import { ServiceType } from '../_services/constents';
 
 @Component({
   selector: "app-editor-panel",
@@ -15,6 +17,7 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
   curTimeString: string;
   totalTimeString: string;
   subTitleElements = [];
+  curElementIndex: number;
   interval;
 
   message: any;
@@ -27,6 +30,16 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
           this.deleteSubTitle(evt.evtVal);
           break;
         }
+        case ServiceType.ST_TIMERANGE_EVT_START: {
+          this.curElementIndex = evt.evtVal;
+          this.setSubTitleTimeRange(ServiceType.ST_TIMERANGE_SET_START);
+          break;
+        }
+        case ServiceType.ST_TIMERANGE_EVT_END: {
+          this.curElementIndex = evt.evtVal;
+          this.setSubTitleTimeRange(ServiceType.ST_TIMERANGE_SET_END);
+          break;
+        }
       }
     });
   }
@@ -35,6 +48,7 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
     this.bVideoStarted = false;
     this.curTime = 0;
     this.totalTime = 1537;
+    this.curElementIndex = 0;
     this.formartCurTime();
     this.formartTotalTime();
   }
@@ -73,6 +87,7 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
     this.totalTimeString = minString + ":" + secString;
   }
 
+  // Button Evetns
   startVideo() {
     if (!this.bVideoStarted) {
       this.bVideoStarted = true;
@@ -90,14 +105,14 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
     this.formartCurTime();
   }
 
-  restartVideo() {
-    this.curTime = 0;
-  }
-
   onTimeValueChange(args: SliderChangeEventArgs) {
     const curValue: any = args.value;
     this.curTime = curValue;
     this.formartCurTime();
+  }
+
+  restartVideo() {
+    this.curTime = 0;
   }
 
   backVideo() {
@@ -116,8 +131,10 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
     this.formartCurTime();
   }
 
+  // Communication Events between here and video-panel
   addSubTitle() {
     this.subTitleElements.push(this.subTitleElements.length);
+    this.curElementIndex = this.subTitleElements.length;
     this.messageService.singleMessage("showBtnComplete");
   }
 
@@ -126,5 +143,15 @@ export class EditorPanelComponent implements OnInit, OnDestroy {
     if (this.subTitleElements.length == 0) {
       this.messageService.singleMessage("hideBtnComplete");
     }
+  }
+
+  // 
+  setSubTitleTimeRange(evt) {
+    console.log("curTime = ", this.curTime);
+    const value = {
+      "index": this.curElementIndex,
+      "value": this.curTime
+    }
+    this.messageService.sendMessage(evt, value);
   }
 }

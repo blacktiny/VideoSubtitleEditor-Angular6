@@ -16,12 +16,13 @@
   </div>
   <div class="subtitle-slider">
     <ejs-slider
+      #eventSlider
       id="range"
       min="0"
       max="{{maxvalue}}"
-      [value]="rangevalue"
-      type="Range"
-      (change)="onRangeValueChange($event)"
+      [value]='rangevalue'
+      type='Range'
+      (change)='onRangeValueChange($event)'
     ></ejs-slider>
   </div>
   <div class="subtitle-timeBounds">
@@ -36,7 +37,7 @@
         />
       </div>
       <div class="btn-section">
-        <button class="btn-setTime">Start Time</button>
+        <button class="btn-setTime" (click)="onSetStartTime()">Start Time</button>
       </div>
     </div>
     <div class="subtitle-timeBounds-separator"><span> - </span></div>
@@ -51,7 +52,7 @@
         />
       </div>
       <div class="btn-section">
-        <button class="btn-setTime">End Time</button>
+        <button class="btn-setTime" (click)="onSetEndTime()">End Time</button>
       </div>
     </div>
   </div>
