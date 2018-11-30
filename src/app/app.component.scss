@@ -10,6 +10,9 @@
       width: 486px;
       height: 100vh;
       background-color: #1F2C3C;
+      @media screen and (max-width:1024px) {
+        width: 350px;
+      }
     }
     &-subtitle {
       width: 100%;

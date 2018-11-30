@@ -9,12 +9,19 @@
           </div>
         </button>
       </div>
-      <div class="screen-section">
+      <div class="screen-section" [ngClass]="{
+        'screen-story': screenSizeType === 1,
+        'screen-square': screenSizeType === 2,
+        'screen-landscape': screenSizeType === 3
+      }">
         <vg-player class="player">
           <video
-            class="video"
-            [vgMedia]="media"
             #media
+            class="video"
+            [ngClass]="{
+              'video-story': screenSizeType == 1
+            }"
+            [vgMedia]="media"
             id="singleVideo"
             preload="auto"
             controls
@@ -25,7 +32,11 @@
             />
           </video>
         </vg-player>
-        <div class="subtitle-content">
+        <div class="subtitle-content" [ngClass]="{
+          'subtitle-story': screenSizeType == 1,
+          'subtitle-square': screenSizeType == 2,
+          'subtitle-landscape': screenSizeType == 3
+        }">
           <div class="text-section">
             <span>click here to add subtitle</span>
           </div>
@@ -106,3 +117,5 @@
     </div>
   </div>
 </div>
+
+<script
